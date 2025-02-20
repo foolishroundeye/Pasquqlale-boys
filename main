@@ -1,3 +1,211 @@
-<script async src="https://cse.google.com/cse.js?cx=a3e77679263264bbb">
-</script>
-<div class="gcse-searchresults-only"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search (Dark & Light Mode)</title>
+
+    <!-- Google Custom Search -->
+    <script async src="https://cse.google.com/cse.js?cx=a3e77679263264bbb"></script>
+
+    <!-- Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Light Mode (Default) */
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 20px;
+            transition: background 0.4s, color 0.4s;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        /* Search Box Container */
+        .gcse-search {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        /* Custom Search Input */
+        .gsc-input {
+            font-size: 16px !important;
+            padding: 12px !important;
+            border: 2px solid #007bff !important;
+            border-radius: 8px !important;
+            background-color: #f1f1f1 !important;
+            color: black !important;
+            width: 100% !important;
+        }
+
+        /* Dark Mode - Search Input */
+        body.dark-mode .gsc-input {
+            background-color: #222 !important;
+            color: white !important;
+            border-color: #00bcd4 !important;
+        }
+
+        /* Custom Search Button */
+        .gsc-search-button {
+            background-color: #007bff !important;
+            border: none !important;
+            padding: 12px 20px !important;
+            color: white !important;
+            font-weight: bold !important;
+            border-radius: 8px !important;
+            cursor: pointer !important;
+            transition: background 0.3s ease-in-out;
+        }
+
+        /* Dark Mode - Search Button */
+        body.dark-mode .gsc-search-button {
+            background-color: #00bcd4 !important;
+            color: black !important;
+        }
+
+        /* Search Results Container */
+        .gsc-results {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #f8f9fa !important;
+            padding: 15px !important;
+            border-radius: 10px !important;
+            transition: background 0.4s;
+        }
+
+        /* Dark Mode - Search Results */
+        body.dark-mode .gsc-results {
+            background: #1e1e1e !important;
+        }
+
+        /* Search Result Titles */
+        .gs-title, .gsc-table-cell-snippet-close {
+            font-size: 18px !important;
+            font-weight: bold !important;
+            color: #007bff !important;
+        }
+
+        /* Dark Mode - Result Titles */
+        body.dark-mode .gs-title {
+            color: #00bcd4 !important;
+        }
+
+        /* Search Result Descriptions */
+        .gs-snippet {
+            font-size: 14px !important;
+            color: #333 !important;
+        }
+
+        /* Dark Mode - Result Descriptions */
+        body.dark-mode .gs-snippet {
+            color: #b0bec5 !important;
+        }
+
+        /* Toggle Switch Container */
+        .toggle-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            width: 40px;
+            height: 20px;
+            background-color: #ccc;
+            border-radius: 20px;
+            margin-left: 10px;
+            position: relative;
+            transition: background 0.4s;
+        }
+
+        .toggle-switch::before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 1px;
+            left: 2px;
+            transition: 0.4s;
+        }
+
+        /* Dark Mode - Toggle */
+        body.dark-mode .toggle-switch {
+            background-color: #00bcd4;
+        }
+
+        body.dark-mode .toggle-switch::before {
+            left: 20px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 600px) {
+            .gcse-search, .gsc-results {
+                width: 95%;
+            }
+            .gsc-input {
+                font-size: 14px !important;
+            }
+            .gs-title {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Toggle Switch for Dark Mode -->
+    <div class="toggle-container" onclick="toggleDarkMode()">
+        <span>Dark Mode</span>
+        <div class="toggle-switch"></div>
+    </div>
+
+    <h1>Google Search (Dark & Light Mode)</h1>
+
+    <!-- Google Custom Search Engine -->
+    <div class="gcse-search"></div>
+
+    <!-- JavaScript for Dark Mode -->
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+
+            // Save preference to localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+            } else {
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        // Check for saved user preference
+        window.onload = function () {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+            }
+        };
+    </script>
+
+</body>
+</html>
